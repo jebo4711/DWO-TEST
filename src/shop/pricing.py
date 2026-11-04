@@ -7,8 +7,9 @@ def vat_cents(net_cents: int, rate_percent: int) -> int:
 
 
 def gross_total(net_cents: int, rate_percent: int) -> int:
-    """Bruttobetrag = Netto + Mehrwertsteuer."""
-    return net_cents + vat_cents(net_cents, rate_percent)
+    """Bruttobetrag = Netto + Mehrwertsteuer (Rundung zentral in vat_cents)."""
+    gross = vat_cents(net_cents, rate_percent)
+    return gross
 
 
 def line_total(unit_net_cents: int, quantity: int, rate_percent: int) -> int:
